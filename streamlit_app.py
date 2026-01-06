@@ -1,17 +1,12 @@
 import streamlit as st
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 from sympy import sympify, symbols, lambdify
 
-st.title("Input & Parsing")
+st.set_page_config(page_title="Kalkulator Bisection SPNL", layout="wide")
 
-fungsi_str = st.sidebar.text_input("Masukkan Fungsi f(x):", value="x^3 - x - 2")
-x_sym = symbols('x')
-
-try:
-    expr = sympify(fungsi_str)
-    f = lambdify(x_sym, expr, 'numpy')
-    
-    st.write(f"Fungsi yang terdeteksi: **f(x) = {expr}**")
-    test_val = st.number_input("Coba masukkan nilai x untuk cek f(x):", value=1.0)
-    st.write(f"Hasil f({test_val}) = {f(test_val)}")
-except Exception as e:
-    st.error(f"Input error: {e}")
+st.title("🧮 Aplikasi Web Solusi SPNL: Metode Bisection")
+st.markdown("""
+Aplikasi ini membantu mencari akar persamaan non-linear $f(x) = 0$ menggunakan metode bagi dua (Bisection).
+""")
