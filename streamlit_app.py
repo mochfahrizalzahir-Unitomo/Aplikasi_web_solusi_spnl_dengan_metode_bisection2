@@ -1,7 +1,7 @@
 import streamlit as st
 from sympy import sympify, symbols, lambdify
 
-st.title("Tahap 1: Input & Parsing")
+st.title("Input & Parsing")
 
 fungsi_str = st.sidebar.text_input("Masukkan Fungsi f(x):", value="x^3 - x - 2")
 x_sym = symbols('x')
